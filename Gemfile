@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
+gem 'devise'
 gem 'pg', '~> 0.14.0'
 gem 'haml-rails', '~> 0.3.4'
 gem 'inherited_resources', '~> 1.3.1'
