@@ -31,6 +31,17 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+            %ul.nav.pull-right
+              - if administrador_signed_in?
+                %li.dropdown
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                    =current_administrador.email
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li= link_to "Editar", edit_administrador_registration_path
+                    %li= link_to "Logout", destroy_administrador_session_path
+              - else
+                %li= link_to('Login', new_administrador_session_path)
 
     .container-fluid
 
