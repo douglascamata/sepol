@@ -1,4 +1,6 @@
 Sepol::Application.routes.draw do
+  devise_for :usuarios
+
   devise_for :administradores
 
   resources :home, only: [:index]
