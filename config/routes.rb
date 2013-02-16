@@ -4,6 +4,7 @@ Sepol::Application.routes.draw do
   devise_for :administradores
 
   resources :home, only: [:index]
+  resources :usuarios, only: [:index]
   root to: 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
