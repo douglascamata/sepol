@@ -1,5 +1,8 @@
 %h2 Usuarios
 -@usuarios.each do |usuario|
+	%br
+	=image_tag usuario.avatar.url(:thumb)
+	%br
 	%b Nome:
 	= usuario.nome
 	%br
