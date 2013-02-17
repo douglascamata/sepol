@@ -1,16 +1,20 @@
-%h2 Usuarios
+%h2 Pesquisadores
 -@usuarios.each do |usuario|
-	%br
-	=image_tag usuario.avatar.url(:thumb)
-	%br
-	%b Nome:
-	= usuario.nome
-	%br
-	%b Email:
-	= usuario.email
-	%br
-	%b Cargo:
-	= usuario.cargo
-	%br
-	%b Lattes:
-	= usuario.lattes
+	%div.span6-well
+		%div.row
+			%div.span2
+				.img-polaroid
+					=image_tag usuario.avatar.url(:medium)
+			%div.span4
+				%h3
+					=usuario.nome
+				%p
+					=image_tag "lattes_icon.png", width: 17
+					= usuario.lattes
+				%p
+					%i.icon-envelope
+					= usuario.email
+				%p
+					%i.icon-group
+					= usuario.cargo
+		%hr
