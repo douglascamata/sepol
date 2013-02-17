@@ -1,20 +1,20 @@
 %h2 Pesquisadores
 -@usuarios.each do |usuario|
-	%div.span6-well
-		%div.row
-			%div.span2
-				.img-polaroid
-					=image_tag usuario.avatar.url(:medium)
-			%div.span4
-				%h3
-					=usuario.nome
-				%p
-					=image_tag "lattes_icon.png", width: 17
-					= usuario.lattes
-				%p
-					%i.icon-envelope
-					= usuario.email
-				%p
-					%i.icon-group
-					= usuario.cargo
-		%hr
+	%div.span3.well
+		%h4.muted
+			=usuario.nome
+		%span
+			.img-polaroid
+				=image_tag usuario.avatar.url(:medium)
+		%div.span
+			%hr
+			%p
+				=image_tag "lattes_icon.png", width: 16
+				=link_to "Lattes", usuario.lattes
+			%p
+				%i.icon-envelope
+				= link_to "Email", usuario.email
+			%p
+				%i.icon-group
+				= usuario.cargo
+	
