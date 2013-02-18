@@ -4,8 +4,7 @@
 		%h4.muted
 			=usuario.nome
 		%span
-			.img-polaroid
-				=image_tag usuario.avatar.url(:medium)
+			%img{:class=>"img-polaroid", :src=> usuario.avatar.url(:medium)}
 		%div.span
 			%hr
 			%p
