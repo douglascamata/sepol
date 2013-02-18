@@ -1,4 +1,6 @@
 Sepol::Application.routes.draw do
+  resources :equipamentos
+
   devise_for :usuarios
 
   devise_for :administradores

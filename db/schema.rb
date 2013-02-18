@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216233755) do
+ActiveRecord::Schema.define(:version => 20130217072459) do
 
   create_table "administradores", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20130216233755) do
 
   add_index "administradores", ["email"], :name => "index_administradores_on_email", :unique => true
   add_index "administradores", ["reset_password_token"], :name => "index_administradores_on_reset_password_token", :unique => true
+
+  create_table "equipamentos", :force => true do |t|
+    t.string   "nome"
+    t.text     "descricao"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+  end
 
   create_table "homes", :force => true do |t|
     t.string   "titulo"
