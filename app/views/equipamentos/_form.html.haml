@@ -1,0 +1,19 @@
+= form_for @equipamento do |f|
+  - if @equipamento.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@equipamento.errors.count, "error")} prohibited this equipamento from being saved:"
+      %ul
+        - @equipamento.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nome
+    = f.text_field :nome
+  .field
+    = f.label :descricao
+    = f.text_area :descricao
+  .field
+    = f.label :imagem
+    = f.file_field :imagem
+  .actions
+    = f.submit 'Save'

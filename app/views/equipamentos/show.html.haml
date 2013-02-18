@@ -1,0 +1,16 @@
+%p#notice= notice
+
+
+%p
+	%b Nome:
+	= @equipamento.nome
+
+=image_tag @equipamento.imagem.url(:medium)
+
+%p
+	%b Descricao:
+	= @equipamento.descricao
+
+= link_to 'Edit', edit_equipamento_path(@equipamento)
+\|
+= link_to 'Back', equipamentos_path
