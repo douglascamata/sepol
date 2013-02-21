@@ -26,12 +26,26 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="/") Sepol
+          %p.nav.brand
+            Sepol
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Usuarios", usuarios_path
-              %li= link_to "Equipamentos", equipamentos_path
-              %li= link_to "Publicações", 'publicacoes_path'
+              %li
+                %a{href: "/"} 
+                  %i.icon-home
+                  Home
+              %li
+                %a{href: usuarios_path} 
+                  %i.icon-group
+                  Grupo de Pesquisa
+              %li
+                %a{href: equipamentos_path} 
+                  %i.icon-beaker
+                  Equipamentos
+              %li
+                %a{href: publicacoes_path} 
+                  %i.icon-book
+                  Publicações
             %ul.nav.pull-right
               - if administrador_signed_in?
                 %li.dropdown
