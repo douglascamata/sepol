@@ -1,4 +1,4 @@
-%h2 Pesquisadores
+%h3 Pesquisadores
 -@usuarios.each do |usuario|
 	%div.span3.well
 		%h4.muted
@@ -12,8 +12,8 @@
 				=link_to "Lattes", usuario.lattes
 			%p
 				%i.icon-envelope
-				= link_to "Email", usuario.email
+				=mail_to usuario.email, 'Email'
 			%p
-				%i.icon-group
+				%i.icon-user
 				= usuario.cargo
 	
