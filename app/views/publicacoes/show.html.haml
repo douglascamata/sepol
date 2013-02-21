@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Titulo:
+  = @publicacao.titulo
+%p
+  %b Abstract:
+  = @publicacao.abstract
+%p
+  %b Link:
+  = @publicacao.link
+
+= link_to 'Edit', edit_publicacao_path(@publicacao)
+\|
+= link_to 'Back', publicacoes_path

@@ -1,0 +1,26 @@
+%div
+  %div
+    %h3 Publicações
+    %span
+      %form{class:"navbar-search pull-left"}
+      %input{type:"text", class: "search-query", placeholder:"Pesquisar"}
+  %br
+
+
+%div{class: "accordion", id: "accordion2"}
+  -@publicacoes.each do |publicacao|
+    %div{class: "accordion-group"}
+      %div{class: "accordion-heading"}
+        %l{class: "accordion-toggle", "data-toggle" => "collapse", "data-parent" => "#accordion2", href: "#collapse-#{publicacao.id}"}
+          .icon-file  
+          =publicacao.titulo
+      %div{class: "accordion-body collapse", id: "collapse-#{publicacao.id}"}
+        %div{class: "accordion-inner"}
+          %i
+            =publicacao.abstract
+          %div
+            %l.btn
+              %l.icon-download-alt{href: publicacao.link}
+              =link_to "Download", publicacao.link, :target => "_blank"
+
+= link_to 'New Publicacao', new_publicacao_path 

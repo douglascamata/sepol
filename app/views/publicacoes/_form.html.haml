@@ -1,0 +1,19 @@
+= form_for @publicacao do |f|
+  - if @publicacao.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@publicacao.errors.count, "error")} prohibited this publicacao from being saved:"
+      %ul
+        - @publicacao.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :abstract
+    = f.text_area :abstract
+  .field
+    = f.label :link
+    = f.text_area :link
+  .actions
+    = f.submit 'Save'
