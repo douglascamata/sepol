@@ -1,5 +1,9 @@
 Sepol::Application.routes.draw do
-  resources :publicacoes
+  resources :publicacoes do
+    collection do
+      get :buscar
+    end
+  end
 
   resources :equipamentos
 
