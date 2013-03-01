@@ -50,3 +50,89 @@ Publicacao.create!(titulo: "Characterization and Properties of Hydrophilic Cellu
 Publicacao.create!(titulo: "Effect of the lithium cation on the sorption and electrical properties of amphiphilic block copolymers and their composites" ,
 				   abstract: "The use of lithium cation in composites of block copolymers [polyethylene-b-polyethylene oxide (PE-b-50%PEO and PE-b-80%PEO)] and their derivatives was tested as a modifier of the vapor sorption and impedance of these complexes. The block copolymer PE-b-80%PEO was modified by oxidation of its hydroxyl end group to both a carboxylic acid group (PE-b-80%PEO)CH2COOH and its sodium salt (PE-b-80%PEO)CH2COO− Na+ for the purpose of improving its compatibility and performance as a matrix for composites. These modified copolymers were characterized by FTIR, DSC, and mass spectrometry. The sorption of water of these copolymers and their composites with lithium nitrate was also compared, as well as the electrical properties of their composites were measured by electrical impedance spectroscopy. For the composites obtained with PE-b-80%PEO and lithium nitrate, it was found that lithium cation plays an important role increasing the sorption rate, which is maximized for the PE-b-80%PEO + (21% lithium nitrate) composite. For the copolymers (PE-b-80%PEO)CH2COOH and (PE-b-80%PEO)CH2COO− Na+ and their composites, the highest sorption rate was observed for salt in the following order: COO− Na+ > COOH > OH. The PE-b-80%PEO + (21% lithium nitrate) composite behaves as a solid polymeric ionic conductor fitting the Williams–Landel–Ferry equation. However, both (PE-b-80% PEO)CH2COOH and (PE-b-80%PEO)CH2COO− Na+ + (21% lithium nitrate) composites fitted the Variable Range Hopping equation, indicating a conductance trend with temperature governed by a thermally activated with energy of 0.482 and 0.524 eV and not by a relaxation process. © 2010 Wiley Periodicals, Inc. J Polym Sci Part B: Polym Phys 48: 1809–1817, 2010" ,
 				   link: "http://onlinelibrary.wiley.com/doi/10.1002/polb.22048/pdf" )
+
+
+
+
+
+Equipamento.create!(nome: "Cromatógrafo Líquido (HPLC) e de Permeação por gel (GPC)", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279635993.jpg")
+	)
+
+Equipamento.create!(nome: "Estufa", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279633733.jpg")
+	)
+
+Equipamento.create!(nome: "Prensa", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279636707.jpg")
+	)
+
+Equipamento.create!(nome: "Sistema de Ultrafiltração", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279636874.jpg")
+	)
+
+Equipamento.create!(nome: "Sistema de Autovacuo", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279636301.jpg")
+	)
+
+
+Equipamento.create!(nome: "Reator Multipropósito IKA-250", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279650882.jpg")
+	)
+
+Equipamento.create!(nome: "Infra Estrutura - SEPOL- Salas 14-16", 
+					descricao:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing." , 
+					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279633239.jpg")
+	)
+
+
+Usuario.create!(nome: "Annabell Del Real Tamariz", 
+					lattes:"http://lattes.cnpq.br/7484786835288826" , 
+					email: "annabell@uenf.br",
+					avatar: open("http://www.lcmat.uenf.br/system/professors/1/photos/small/Anna-Site.png?1360265723"),
+					password: "123456",
+					password_confirmation: "123456",
+					cargo: "Pesquisador"
+	)
+
+Usuario.create!(nome: "Ausberto S. Castro Vera", 
+					lattes:"http://lattes.cnpq.br/5716122572035460" , 
+					email: "ascv@uenf.br",
+					avatar: open("http://www.lcmat.uenf.br/system/professors/16/photos/small/Ausberto.jpg?1360261102"),
+					password: "123456",
+					password_confirmation: "123456",
+					cargo: "Professor"
+	)
+
+Usuario.create!(nome: "Luis Antonio Rivera Escriba", 
+					lattes:"http://google.com/" , 
+					email: "rivera@uenf.br",
+					avatar: open("http://www.lcmat.uenf.br/system/professors/2/photos/small/luis-uenf2011-02-pagina.jpg?1360274108"),
+					password: "123456",
+					password_confirmation: "123456",
+					cargo: "Pesquisador"
+	)
+
+Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
+					lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
+					email: "sanchez@uenf.br",
+					avatar: open("http://www.fuegen-trennen-beschichten.de/EXPERT_autoren/200606.jpg"),
+					password: "123456",
+					password_confirmation: "123456",
+					cargo: "Chefe"
+	)
+
+Usuario.create!(nome: "Raúl Ernesto López Palacio", 
+					lattes:"http://lattes.cnpq.br/7484786835288826" , 
+					email: "relp@uenf.br",
+					avatar: open("http://www.lcmat.uenf.br/system/professors/17/photos/small/Raul-Site.jpg?1360259613"),
+					password: "123456",
+					password_confirmation: "123456",
+					cargo: "Pesquisador"
+	)
