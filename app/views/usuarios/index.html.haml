@@ -4,7 +4,7 @@
 	%div{class: "row-fluid without-margin-left"}
 		-@usuarios.sort_by(&:nome ).each do |usuario|
 			%div.span3
-				%li.thumbnail
+				%div.thumbnail.well
 					%div
 						%img{:src=> usuario.avatar.url(:medium)}
 					%div
