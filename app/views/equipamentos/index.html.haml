@@ -1,19 +1,24 @@
 %h3 Equipamentos
-%ul.thumbnails
-  -@equipamentos.each do |equipamento|
-    %li.span3.well
-      %a{classe: "thumbnail", "data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
-        %img{class: "img-polaroid", src: equipamento.imagem.url(:thumb)}
-      %br 
-        %div.span
-          %p
-            %b.muted=equipamento.nome
+
+%div
+  %div{class: "row-fluid without-margin-left"}
+    -@equipamentos.each do |equipamento|
+      %div.span3
+        %div.thumbnail.well
+          %div
+            %a{"data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
+              %img{class: "img-rounded", src: equipamento.imagem.url(:thumb)}
+            %br
+          %hr 
+          %div
+            %div.box_nome_equipamento  
+              %b.muted=equipamento.nome
     
-    %div{:id=> "#{equipamento.id}", :class=>"lightbox hide fade",  "tabindex" => "-1", "role" => "dialog", "aria-hidden" => "true"}
-      %div{:class=>"lightbox-header"}
-        %button{:type=>"button", :class=>"close", "data-dismiss"=>"lightbox", "aria-hidden"=>"true"}
-      %div{:class=>"lightbox-content"}
-        %div
-          %img{:class=>"polaroid", :src=> equipamento.imagem.url(:medium)}
-        %div.lightbox-caption
-          =equipamento.descricao
+          %div{:id=> "#{equipamento.id}", :class=>"lightbox hide fade",  "tabindex" => "-1", "role" => "dialog", "aria-hidden" => "true"}
+            %div{:class=>"lightbox-header"}
+              %button{:type=>"button", :class=>"close", "data-dismiss"=>"lightbox", "aria-hidden"=>"true"}
+            %div{:class=>"lightbox-content"}
+              %div
+                %img{:class=>"polaroid", :src=> equipamento.imagem.url(:medium)}
+              %div.lightbox-caption
+                =equipamento.descricao
