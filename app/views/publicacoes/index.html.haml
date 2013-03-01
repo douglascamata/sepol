@@ -8,11 +8,9 @@
           %i.icon-search{style: "font-size: 1.5em;"}
         %span2
           =f.text_field :titulo_or_abstract_cont, placeholder: "Pesquisar"
-      / =f.submit
       %br
 
 %div{id: "publicacao_buscada"}
   = render 'resultado_busca', publicacao: @publicacao
-/ %input{type:"text", class: "search-query", placeholder:"Pesquisar"}
 
 = link_to 'New Publicacao', new_publicacao_path 
