@@ -1,26 +1,39 @@
-%h3 Equipamentos
 
-%div
-  %div{class: "row-fluid without-margin-left"}
-    -@equipamentos.each do |equipamento|
-      %div.span3
-        %div.thumbnail.well
-          %div
-            %a{"data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
-              %img{class: "img-rounded", src: equipamento.imagem.url(:thumb)}
-            %br
-          %hr
-          %div.box_nome_equipamento_fora
-            %div.box_nome_equipamento
-              %a{:href => "##{equipamento.id}", "data-toggle"=> "lightbox"}
-                %b.muted=equipamento.nome[0..50] + (equipamento.nome.length > 50 ? "..." : "")
 
+  
+%div{class: "carousel-inner"}
+  .span12
+    %div{class: "row-fluid without-margin-left offset1"}
+      %h3 Equipamentos
+      -@equipamentos.each do |equipamento|
+        %div.span2
+          %div.thumbnail.well
+            %div
+              %a{"data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
+                %img{class: "img-rounded", src: equipamento.imagem.url(:thumb)}
+              %br
+            %hr
+            %div.box_nome_equipamento_fora
+              %div.box_nome_equipamento
+                %a{:href => "##{equipamento.id}", "data-toggle"=> "lightbox"}
+                  %h6.muted=equipamento.nome[0..50] + (equipamento.nome.length > 50 ? "..." : "")
+
+      
+            %div{:id=> "#{equipamento.id}", :class=>"lightbox hide fade",  "tabindex" => "-1", "role" => "dialog", "aria-hidden" => "true"}
+              %div{:class=>"lightbox-header"}
+                %button{:type=>"button", :class=>"close", "data-dismiss"=>"lightbox", "aria-hidden"=>"true"}
+              %div{:class=>"lightbox-content"}
+                %div
+                  %img{:class=>"polaroid", :src=> equipamento.imagem.url(:medium)}
+                %div.lightbox-caption
+                  =equipamento.descricao
+    %div.btn-group
+      =will_paginate @equipamentos, container: false
+    %a{class: "btn btn-small carousel-control left", "data-slide"=>"prev", onclick: "$(\".previous_page\").children()[0].click();"}
+      = "‹"
+
+    %a{class: "btn btn-small carousel-control right", "data-slide"=>"next", onclick: "$(\".next_page\").children()[0].click();"}
+      = "›"
+
+      
     
-          %div{:id=> "#{equipamento.id}", :class=>"lightbox hide fade",  "tabindex" => "-1", "role" => "dialog", "aria-hidden" => "true"}
-            %div{:class=>"lightbox-header"}
-              %button{:type=>"button", :class=>"close", "data-dismiss"=>"lightbox", "aria-hidden"=>"true"}
-            %div{:class=>"lightbox-content"}
-              %div
-                %img{:class=>"polaroid", :src=> equipamento.imagem.url(:medium)}
-              %div.lightbox-caption
-                =equipamento.descricao
