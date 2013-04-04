@@ -61,14 +61,15 @@
     .container-fluid
 
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Links
-              %li= link_to "UENF", "http://www.uenf.br/portal/index.php/br/", :target=>"_blank"
-              %li= link_to "LAMAV", "http://www.uenf.br/Uenf/Pages/CCT/Lamav/", :target=>"_blank"
-              %li= link_to "CNPq", "http://www.cnpq.br/", :target=>"_blank"
-        .span9
+        / .span2
+        /   .well.sidebar-nav
+        /     %ul.nav.nav-list
+        /       %li.nav-header Links
+        /       %li= link_to "UENF", "http://www.uenf.br/portal/index.php/br/", :target=>"_blank"
+        /       %li= link_to "LAMAV", "http://www.uenf.br/Uenf/Pages/CCT/Lamav/", :target=>"_blank"
+        /       %li= link_to "CNPq", "http://www.cnpq.br/", :target=>"_blank"
+        / %div.container
+        .span12  
           = yield
     
       %footer

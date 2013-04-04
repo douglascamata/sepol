@@ -1,24 +1,25 @@
-%h3 Pesquisadores
+.span12.offset1
+	%h3 Pesquisadores
 
-%div
-	%div{class: "row-fluid without-margin-left"}
-		-@usuarios.sort_by(&:nome ).each do |usuario|
-			%div.span3
-				%div.thumbnail.well
-					%div
-						%img{:src=> usuario.avatar.url(:medium)}
-					%div
-						%div.box_nome_pesquisador
-							%h4
-								=usuario.nome
-						%hr
-						%p
-							=image_tag "lattes_icon.png", width: 16
-							=link_to "Lattes", usuario.lattes
-						%p
-							%i.icon-envelope
-							=mail_to usuario.email, 'Email'
-						%p
-							%i.icon-user
-							= usuario.cargo
-						
+	%div
+		%div{class: "row-fluid without-margin-left"}
+			-@usuarios.sort_by(&:nome ).each do |usuario|
+				%div.span2
+					%div.thumbnail.well
+						%div
+							%img{:src=> usuario.avatar.url(:medium)}
+						%div
+							%div.box_nome_pesquisador
+								%h5
+									=usuario.nome
+							%hr
+							%p
+								=image_tag "lattes_icon.png", width: 16
+								=link_to "Lattes", usuario.lattes
+							%p
+								%i.icon-envelope
+								=mail_to usuario.email, 'Email'
+							%p
+								%i.icon-user
+								= usuario.cargo
+							
