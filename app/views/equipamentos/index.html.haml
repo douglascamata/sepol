@@ -9,10 +9,12 @@
             %a{"data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
               %img{class: "img-rounded", src: equipamento.imagem.url(:thumb)}
             %br
-          %hr 
-          %div
-            %div.box_nome_equipamento  
-              %b.muted=equipamento.nome
+          %hr
+          %div.box_nome_equipamento_fora
+            %div.box_nome_equipamento
+              %a{:href => "##{equipamento.id}", "data-toggle"=> "lightbox"}
+                %b.muted=equipamento.nome[0..50] + (equipamento.nome.length > 50 ? "..." : "")
+
     
           %div{:id=> "#{equipamento.id}", :class=>"lightbox hide fade",  "tabindex" => "-1", "role" => "dialog", "aria-hidden" => "true"}
             %div{:class=>"lightbox-header"}
