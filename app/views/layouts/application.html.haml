@@ -19,6 +19,8 @@
 
 
   %body
+    =render :partial => "layouts/flash_messages", :locals => {:flash => flash}
+
     .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
