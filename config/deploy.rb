@@ -37,7 +37,7 @@ namespace :utils do
     run "cd #{latest_release}; bundle exec rake db:seed"
   end
   task :copy_config_file do
-    run "cat ~/.sepol/database.yml > #{latest_release}/config/database.yml"
+    run "cat /home/ada/.sepol/database.yml > #{latest_release}/config/database.yml"
     # run "cat ~/.protocolo/mail.yml > #{latest_release}/config/mail.yml"
   end
 end
