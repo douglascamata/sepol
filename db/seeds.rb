@@ -91,7 +91,7 @@ Equipamento.create!(nome: "Infra Estrutura - SEPOL- Salas 14-16",
 					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279633239.jpg")
 	)
 
-unless Usuario.all.empty?
+if Usuario.all.empty?
 	Usuario.create!(nome: "Annabell Del Real Tamariz", 
 						lattes:"http://lattes.cnpq.br/7484786835288826" , 
 						email: "annabell@uenf.br",
