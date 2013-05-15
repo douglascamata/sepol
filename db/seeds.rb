@@ -127,13 +127,4 @@ unless Usuario.all.empty?
 						password_confirmation: "123456",
 						cargo: "Chefe"
 		)
-
-	Usuario.create!(nome: "Raúl Ernesto López Palacio", 
-						lattes:"http://lattes.cnpq.br/7484786835288826" , 
-						email: "relp@uenf.br",
-						avatar: open("http://www.lcmat.uenf.br/system/professors/17/photos/small/Raul-Site.jpg?1360259613"),
-						password: "123456",
-						password_confirmation: "123456",
-						cargo: "Pesquisador"
-		)
 end
