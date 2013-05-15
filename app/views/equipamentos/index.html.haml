@@ -10,7 +10,7 @@
           %div.thumbnail.well
             %div
               %a{"data-toggle"=> "lightbox", :href=>"##{equipamento.id}"}
-                %img{class: "img-rounded", src: equipamento.imagem.url(:thumb)}
+                %img{class: "img-rounded", src: root_url.chomp('/') + equipamento.imagem.url(:thumb)}
               %br
             %hr
             %div.box_nome_equipamento_fora
@@ -24,7 +24,7 @@
                 %button{:type=>"button", :class=>"close", "data-dismiss"=>"lightbox", "aria-hidden"=>"true"}
               %div{:class=>"lightbox-content"}
                 %div
-                  %img{:class=>"polaroid", :src=> equipamento.imagem.url(:medium)}
+                  %img{:class=>"polaroid", :src=> root_url.chomp('/') + equipamento.imagem.url(:medium)}
                 %div.lightbox-caption
                   =equipamento.descricao
     %div.btn-group
