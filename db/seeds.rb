@@ -99,7 +99,7 @@ Usuario.create!(nome: "Annabell Del Real Tamariz",
 					password: "123456",
 					password_confirmation: "123456",
 					cargo: "Pesquisador"
-	)
+	) if Usuario.all.nil?
 
 Usuario.create!(nome: "Ausberto S. Castro Vera", 
 					lattes:"http://lattes.cnpq.br/5716122572035460" , 
@@ -108,7 +108,7 @@ Usuario.create!(nome: "Ausberto S. Castro Vera",
 					password: "123456",
 					password_confirmation: "123456",
 					cargo: "Professor"
-	)
+	) if Usuario.all.nil?
 
 Usuario.create!(nome: "Luis Antonio Rivera Escriba", 
 					lattes:"http://google.com/" , 
@@ -117,7 +117,7 @@ Usuario.create!(nome: "Luis Antonio Rivera Escriba",
 					password: "123456",
 					password_confirmation: "123456",
 					cargo: "Pesquisador"
-	)
+	) if Usuario.all.nil?
 
 Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
 					lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
@@ -126,7 +126,7 @@ Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez",
 					password: "123456",
 					password_confirmation: "123456",
 					cargo: "Chefe"
-	)
+	) if Usuario.all.nil?
 
 Usuario.create!(nome: "Raúl Ernesto López Palacio", 
 					lattes:"http://lattes.cnpq.br/7484786835288826" , 
@@ -135,4 +135,4 @@ Usuario.create!(nome: "Raúl Ernesto López Palacio",
 					password: "123456",
 					password_confirmation: "123456",
 					cargo: "Pesquisador"
-	)
+	) if Usuario.all.nil?
