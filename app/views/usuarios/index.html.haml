@@ -7,7 +7,7 @@
 				%div.span2
 					%div.thumbnail.well
 						%div
-							%img{:src=> usuario.avatar.url(:medium)}
+							%img{:src=> root_url.chomp('/') + usuario.avatar.url(:medium)}
 						%div
 							%div.box_nome_pesquisador
 								%h5
