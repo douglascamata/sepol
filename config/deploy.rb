@@ -64,4 +64,4 @@ end
 tasks = ["deploy:finalize_update", "utils:copy_config_file"]
 
 after *tasks
-after "deploy:update_code", "db:create", "db:migrate"
+after "deploy:update_code", "db:create", "db:migrate", "utils:compile_assets"
