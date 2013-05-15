@@ -51,6 +51,7 @@ end
 namespace :db do
   task :create do; run "cd #{release_path}; bundle exec rake db:create"; end
   task :migrate do; run "cd #{release_path}; bundle exec rake db:migrate"; end
+  task :seed do; run "cd #{release_path}; bundle exec rake db:seed"; end
 end
 
 namespace :deploy do
@@ -64,4 +65,4 @@ end
 tasks = ["deploy:finalize_update", "utils:copy_config_file"]
 
 after *tasks
-after "deploy:update_code", "db:create", "db:migrate", "utils:compile_assets"
+after "deploy:update_code", "db:create", "db:migrate", "db:seed", "utils:compile_assets"
