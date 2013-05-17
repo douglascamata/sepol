@@ -1,4 +1,5 @@
 class Equipamento < ActiveRecord::Base
+  has_many :reservas
   has_attached_file :imagem, :styles => { :medium => "800x600>", :thumb => "200x200#" }		
   
   validates_presence_of :nome, :descricao, :imagem
