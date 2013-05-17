@@ -26,6 +26,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.10.0'
   gem 'capybara', '~> 1.1.2'
+  gem 'shoulda-matchers'
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'poltergeist', '~> 0.6.0'
