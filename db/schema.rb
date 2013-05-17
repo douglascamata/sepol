@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218235011) do
+ActiveRecord::Schema.define(:version => 20130516215851) do
 
   create_table "administradores", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20130218235011) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "reservas", :force => true do |t|
+    t.datetime "horario_inicial"
+    t.datetime "horario_final"
+    t.integer  "usuario_id"
+    t.integer  "equipamento_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "reservas", ["usuario_id"], :name => "index_reservas_on_usuario_id"
 
   create_table "usuarios", :force => true do |t|
     t.string   "email"
