@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :reserva do
-    horario_inicial "2013-05-16 19:00:52"
-    horario_final "2013-05-16 19:00:52"
-    usuario nil
+    sequence(:horario_inicial) {|n| "2013-05-16 0#{n}:00:52"}
+    sequence(:horario_final) {|n| "2013-05-16 0#{n}:00:52"}
+    usuario
   end
 end

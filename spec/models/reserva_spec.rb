@@ -14,5 +14,20 @@ describe Reserva do
   context 'Relacoes' do
     it{should belong_to(:usuario)}
     it{should belong_to(:equipamento)}
+
+    it 'Nao deve haver mais de 1 reserva no mesmo horario pro mesmo equipamento' do
+      horario = DateTime.now
+      equipamento = FactoryGirl.create :equipamento
+      usuario = FactoryGirl.create :usuario
+      reserva_1 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario
+      lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario}.should raise_exception
+    end
+
+    it 'Um equipamento pode ter varias reservas' do
+      equipamento = FactoryGirl.create :equipamento
+      reserva_1 = FactoryGirl.create :reserva, equipamento: equipamento
+      reserva_2 = FactoryGirl.create :reserva, equipamento: equipamento
+      equipamento.reservas.should include(reserva_1, reserva_2)
+    end
   end
 end

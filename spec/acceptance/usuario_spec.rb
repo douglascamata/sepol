@@ -14,7 +14,7 @@ feature 'Login' do
 		click_button 'Sign up'
 		page.should have_content "Login efetuado com sucesso."				
 	end
-
+	
 	scenario 'fazer login' do	
 		usuario = FactoryGirl.create :usuario, nome: 'usuario', email: 'usuario@test.br', password: '123456foobar', password_confirmation: '123456foobar', lattes: 'http://buscatextual.cnpq.br/usuario', cargo: 'bolsita'
 		visit new_usuario_session_path
