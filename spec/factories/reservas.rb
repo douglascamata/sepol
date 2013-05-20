@@ -2,8 +2,11 @@
 
 FactoryGirl.define do
   factory :reserva do
-    sequence(:horario_inicial) {|n| "2013-05-16 0#{n}:00:52"}
-    sequence(:horario_final) {|n| "2013-05-16 0#{n}:00:52"}
+    horario_inicial Delorean.now
+    Delorean.time_travel_to(1.hour.from_now)
+    horario_final Delorean.now
+    Delorean.back_to_the_present
     usuario
   end
 end
+	
