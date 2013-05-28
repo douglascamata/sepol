@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 require 'spec_helper'
+require './spec/suport/usuario'
 
 feature 'Login' do
 	scenario 'Criar usuario' do				
@@ -16,11 +17,8 @@ feature 'Login' do
 	end
 	
 	scenario 'fazer login' do	
-		usuario = FactoryGirl.create :usuario, nome: 'usuario', email: 'usuario@test.br', password: '123456foobar', password_confirmation: '123456foobar', lattes: 'http://buscatextual.cnpq.br/usuario', cargo: 'bolsita'
-		visit new_usuario_session_path
-		fill_in 'Email', with: usuario.email
-		fill_in 'Password', with: usuario.password
-		click_button 'Sign in'	
+		usuario = FactoryGirl.create :usuario
+		logar(usuario)
 		page.should have_content "Login efetuado com sucesso!"		
 	end
 end
