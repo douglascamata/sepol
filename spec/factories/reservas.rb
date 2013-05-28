@@ -2,10 +2,8 @@
 
 FactoryGirl.define do
   factory :reserva do
-    horario_inicial Delorean.now
-    Delorean.time_travel_to(1.hour.from_now)
-    horario_final Delorean.now
-    Delorean.back_to_the_present
+    horario_inicial Time.now
+    horario_final Time.now + 2.hours
     usuario
   end
 end
