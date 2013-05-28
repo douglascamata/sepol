@@ -1,0 +1,22 @@
+= semantic_form_for @reserva do |f|
+  - if @reserva.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@reserva.errors.count, "error")} prohibited this reserva from being saved:"
+      %ul
+        - @reserva.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :equipamento
+    = f.select :equipamento_id,  options_for_select(Equipamento.all.map{|b| [b.nome, b.id]})
+  .muted
+    = f.label :usuario
+    = f.select :usuario_id, {current_usuario.nome => current_usuario.id}, :input_html => { :disabled => true }
+  .field
+    = f.label :horario_inicial
+    = f.datetime_select :horario_inicial
+  .field
+    = f.label :horario_final
+    = f.datetime_select :horario_final
+  .actions
+    = f.submit 'Save'

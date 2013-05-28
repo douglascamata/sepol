@@ -1,0 +1,18 @@
+%h3 Reservas
+%table.table.table-striped
+	%tr
+		%th Usuario
+		%th Equipamento
+		%th Horario Inicio
+		%th Horario Final
+	-@reservas.sort_by{|obj| obj.equipamento.nome}.sort_by(&:horario_inicial).each do |reserva|
+		%tr
+			%td 
+				=reserva.usuario.nome
+			%td 
+				=reserva.equipamento.nome
+			%td 
+				=reserva.horario_inicial.strftime("%T - %D")
+			%td 
+				=reserva.horario_final.strftime("%T - %D")
+
