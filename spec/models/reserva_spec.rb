@@ -36,6 +36,11 @@ describe Reserva do
       lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_final: time_travel_to(1.day.ago){Delorean.now}}.should raise_exception
     end
 
+    it 'Horario final nao pode ser igual a horario final' do
+      horario = Time.now
+      lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_final: horario, horario_final: horario}.should raise_exception
+    end
+
     it 'Um equipamento pode ter varias reservas' do
       equipamento = FactoryGirl.create :equipamento
       reserva_1 = FactoryGirl.create :reserva, equipamento: equipamento
