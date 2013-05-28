@@ -23,6 +23,10 @@ def validar_horario
 		if self.horario_inicial.between?(inicio, fim)
 			errors.add(:horario_inicial, "não disponível.")
 		end
+
+		if inicio.between?(self.horario_inicial, self.horario_final) or fim.between?(self.horario_inicial, self.horario_final)
+			errors.add(:base, "Já existe uma reserva dentro desse intervalo de tempo")
+		end
 		
 		if self.horario_final.between?(inicio, fim)
 			errors.add(:horario_final, "não disponível.")
