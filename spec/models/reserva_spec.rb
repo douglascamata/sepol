@@ -15,6 +15,7 @@ describe Reserva do
   context 'Relacoes' do
     it{should belong_to(:usuario)}
     it{should belong_to(:equipamento)}
+    it{should have_many(:comentarios)}
   end
 
   context 'Nao deve haver mais de 1 reserva no mesmo horario pro mesmo equipamento' do
