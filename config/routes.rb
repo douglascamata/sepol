@@ -7,7 +7,10 @@ Sepol::Application.routes.draw do
 
   resources :equipamentos
 
-  resources :reservas
+  resources :reservas do
+    resources :comentarios
+  end
+
 
   devise_for :usuarios
 
