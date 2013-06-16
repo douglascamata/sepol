@@ -20,6 +20,7 @@ group :assets do
   gem 'less'
   gem 'less-rails'
   gem 'twitter-bootstrap-rails', '~> 2.1.3'
+  gem 'jquery-ui-rails'
 end
 
 group :development, :test do
