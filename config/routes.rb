@@ -6,6 +6,7 @@ Sepol::Application.routes.draw do
   end
 
   resources :equipamentos
+  
 
   resources :reservas do
     resources :comentarios

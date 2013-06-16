@@ -32,7 +32,7 @@ describe Reserva do
       lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: Time.now.yesterday, horario_final: Time.now + 30.minutes}.should raise_exception
     end
 
-    it  'Uma reserva nao pode acabar antes de começar' do
+    it 'Uma reserva nao pode acabar antes de começar' do
       equipamento = FactoryGirl.create :equipamento
       lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_final: Time.now.yesterday}.should raise_exception
     end

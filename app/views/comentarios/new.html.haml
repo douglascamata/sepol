@@ -1,0 +1,12 @@
+= semantic_form_for [@reserva, @comentario], url: reserva_comentarios_path(@reserva, @comentario) do |f|
+	.muted
+		= f.label :autor
+	-if (usuario_signed_in?)
+		= f.select :autor, {current_usuario.nome => current_usuario.nome}, :input_html => { :disabled => true }
+	-else 
+		= f.select :autor, {'Administrador' => 'Administrador'}, :input_html => { :disabled => true }
+	.field
+		= f.label :texto
+		= f.text_area :texto
+	.actions
+		= f.submit 'Save'
