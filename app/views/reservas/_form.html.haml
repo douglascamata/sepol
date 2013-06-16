@@ -7,16 +7,25 @@
           %li= msg
 
   .field
-    = f.label :equipamento
-    = f.select :equipamento_id,  options_for_select(Equipamento.all.map{|b| [b.nome, b.id]})
+    = f.input :equipamento_id, as: :select,  collection:(Equipamento.all.map{|b| [b.nome, b.id]}), label: 'equipamento'
   .muted
-    = f.label :usuario
-    = f.select :usuario_id, {current_usuario.nome => current_usuario.id}, :input_html => { :disabled => true }
+    = f.input :usuario_id, as: :select, include_blank: false,  collection: {current_usuario.nome => current_usuario.id}, label: 'usuario'
+
+
   .field
-    = f.label :horario_inicial
-    = f.datetime_select :horario_inicial
+    %div.input-append{id: "datetimepicker_inicio"}
+      =f.label :horario_inicial
+      =f.text_field :horario_inicial, as: :string, label: 'Horario inicial', input_html: {id: "appendedInput", class: "span2", type: "text"}
+      %span2.add-on
+        %i{"data-time-icon"=>"icon-time", "data-date-icon"=>"icon-calendar"}
+
+
   .field
-    = f.label :horario_final
-    = f.datetime_select :horario_final
+    %div.input-append{id: "datetimepicker_fim"}  
+      =f.label :horario_final
+      =f.text_field :horario_final, as: :string, label: 'Horario inicial', input_html: {id: "appendedInput", class: "span2"}
+      %span.add-on
+        %i{"data-time-icon"=>"icon-time", "data-date-icon"=>"icon-calendar"}
+
   .actions
     = f.submit 'Save'
