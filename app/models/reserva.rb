@@ -18,19 +18,11 @@ def validar_horario
 		end
 	end
 	@horarios_iniciais, @horarios_finais = [], []
-	Reserva.all.find_all{|reserva| reserva.equipamento_id == self.equipamento_id}.each{|reserva| @horarios_iniciais << reserva.horario_inicial; @horarios_finais << reserva.horario_final}
-	@horarios = @horarios_iniciais.zip @horarios_finais	
-	@horarios.each do |inicio, fim| 
-		if self.horario_inicial.between?(inicio, fim)
-			errors.add(:horario_inicial, "não disponível.")
-		end
-
+	Reserva.where('equipamento_id = ?', self.equipamento_id).each{|reserva| @horarios_iniciais << reserva.horario_inicial; @horarios_finais << reserva.horario_final}
+	@horarios_iniciais.zip(@horarios_finais).each do |inicio, fim| 
 		if inicio.between?(self.horario_inicial, self.horario_final) or fim.between?(self.horario_inicial, self.horario_final)
 			errors.add(:base, "Já existe uma reserva dentro desse intervalo de tempo")
-		end
-		
-		if self.horario_final.between?(inicio, fim)
-			errors.add(:horario_final, "não disponível.")
+			break
 		end
 	end
 end
