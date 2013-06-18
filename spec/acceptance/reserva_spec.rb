@@ -10,13 +10,12 @@ feature 'Reserva de equipamento' do
 		horario_inicio  = Time.now.utc
 		horario_final = horario_inicio + 2.hours
 		logar(usuario)
-		visit new_reserva_path
-		select equipamento.nome, from: "equipamento"
+		visit new_equipamento_reserva_path(equipamento)
 		fill_in "Horario inicial", with: horario_inicio
 		fill_in "Horario final", with: horario_final
 		click_button 'Save'
 
-		visit reserva_path(equipamento.id)
+		visit equipamento_reservas_path(equipamento.id)
 		page.should have_content horario_inicio.strftime("%T - %D")
 		page.should have_content horario_final.strftime("%T - %D")
 	end
@@ -29,7 +28,7 @@ feature 'Comentario de reserva' do
 		usuario = FactoryGirl.create :usuario
 		logar(usuario)
 
-		visit reserva_comentarios_path(reserva)
+		visit equipamento_reserva_comentarios_path(equipamento, reserva)
 
 		fill_in "comentario", with: "Aqui esta um comentario."
 		click_button "Enviar"
@@ -45,7 +44,7 @@ feature	'Informações da reserva' do
 		usuario = FactoryGirl.create :usuario
 		logar(usuario)
 
-		visit reserva_comentarios_path(reserva)		
+		visit equipamento_reserva_comentarios_path(equipamento, reserva)		
 
 		page.should have_content usuario.nome
 		page.should have_content reserva.horario_inicial.strftime("%D - %T")

@@ -14,6 +14,7 @@ class ComentariosController < InheritedResources::Base
 		@reserva = Reserva.find params[:reserva_id]
 		@comentario = @reserva.comentarios.build(params[:comentario])
 		@comentario.save!
-		redirect_to reserva_comentarios_path
+		
+		redirect_to equipamento_reserva_path(params[:equipamento_id], @reserva)
 	end
 end
