@@ -1,5 +1,21 @@
-%h3 Equipamentos
-
--Equipamento.all.each do |equipamento|
-	%div
-		=link_to equipamento.nome, reserva_path(equipamento)
+%h3 
+	=@equipamento.nome
+	%hr
+-if @reservas.empty?
+	%h4 Não há reserva para o equipamento.
+-else
+	%table.table.table-striped
+		%tr
+			%th Usuario
+			%th Horario Inicio
+			%th Horario Final
+		-@reservas.sort_by(&:horario_inicial).each do |reserva|
+			%tr
+				%td
+					=link_to reserva.id, equipamento_reserva_path(@equipamento, reserva)
+				%td 
+					=reserva.usuario.nome
+				%td 
+					=reserva.horario_inicial.strftime("%T - %D")
+				%td 
+					=reserva.horario_final.strftime("%T - %D")
