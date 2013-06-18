@@ -44,7 +44,7 @@
 						%dd.span6.well.well-small
 							=comentario.texto
 
-			= semantic_form_for [@reserva, @comentario], url: reserva_comentarios_path(@reserva, @comentario) do |f|
+			= semantic_form_for [@reserva, @comentario], url: equipamento_reserva_comentarios_path(@reserva.equipamento, @reserva, @comentario) do |f|
 				%dl
 					%dt
 						=f.input :autor, as: :select, collection: [@comentario.autor], label: false, include_blank: false

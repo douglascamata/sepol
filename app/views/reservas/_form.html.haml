@@ -1,4 +1,4 @@
-= semantic_form_for @reserva do |f|
+= semantic_form_for [@equipamento, @reserva] do |f|
   - if @reserva.errors.any?
     #error_explanation
       %h2= "#{pluralize(@reserva.errors.count, "error")} prohibited this reserva from being saved:"
@@ -7,7 +7,7 @@
           %li= msg
 
   .field
-    = f.input :equipamento_id, as: :select,  collection:(Equipamento.all.map{|b| [b.nome, b.id]}), label: 'equipamento'
+    = f.input :equipamento_id, as: :select,  collection:(Equipamento.all.map{|b| [b.nome, b.id]}), label: 'equipamento', input_html: {disabled: true}
   .muted
     = f.input :usuario_id, as: :select, include_blank: false,  collection: {current_usuario.nome => current_usuario.id}, label: 'usuario'
 
