@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529225001) do
+ActiveRecord::Schema.define(:version => 20130619014718) do
 
   create_table "administradores", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -76,6 +76,18 @@ ActiveRecord::Schema.define(:version => 20130529225001) do
   end
 
   add_index "reservas", ["usuario_id"], :name => "index_reservas_on_usuario_id"
+
+  create_table "resultados", :force => true do |t|
+    t.integer  "reserva_id"
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "resultados", ["reserva_id"], :name => "index_resultados_on_reserva_id"
 
   create_table "usuarios", :force => true do |t|
     t.string   "email"
