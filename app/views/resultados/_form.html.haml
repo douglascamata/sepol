@@ -1,0 +1,7 @@
+= @reserva.id
+= semantic_form_for [@equipamento, @reserva, @resultado] do |f|
+  .field
+    = f.label :imagem
+    = f.file_field :imagem
+  .actions
+    = f.submit 'Save'
