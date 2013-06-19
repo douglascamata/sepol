@@ -1,16 +1,22 @@
 %div.tabbable
 	%ul.nav.nav-tabs
-		%li
+		%li.active
 			%a{href: '#lA', "data-toggle" => 'tab'}
 				%b
 					Detalhes
-		%li.active
+		%li
 			%a{href: '#lB', "data-toggle" => 'tab'}
 				%b
 					Comentários
 
+		%li
+			%a{href: '#lC', "data-toggle" => 'tab'}
+				%b
+					Resultados
+
+
 	%div.tab-content
-		%div.tab-pane{id: "lA"}
+		%div.tab-pane.active{id: "lA"}
 			%h5 Equipamento:
 			%p	
 				=@reserva.equipamento.nome
@@ -35,7 +41,7 @@
 
 
 
-		%div.tab-pane.active{id: "lB"}
+		%div.tab-pane{id: "lB"}
 			%div.scroll
 				%dl.dl-horizontal
 					-@comentarios.each do |comentario|
@@ -44,7 +50,7 @@
 						%dd.span6.well.well-small
 							=comentario.texto
 
-			= semantic_form_for [@equipamento, @reserva, @comentario], url: equipamento_reserva_comentarios_path(@equipamento, @reserva, @comentario) do |f|
+			= semantic_form_for [@reserva, @comentario], url: equipamento_reserva_comentarios_path(@reserva.equipamento, @reserva, @comentario) do |f|
 				%dl
 					%dt
 						=f.input :autor, as: :select, collection: [@comentario.autor], label: false, include_blank: false
@@ -53,3 +59,9 @@
 						= f.input :texto, as: :text, label: 'comentario', :input_html =>{ class: 'span7', rows: 5}
 					%div.span5.pull-right
 						= f.submit 'Enviar'
+
+		%div.tab-pane{id: "lC"}	
+			-if @reserva.resultado.nil?
+				%h5 Ainda não há resultado disponível
+			-else
+				%img{class: "img-rounded", src: root_url.chomp('/') + @reserva.resultado.imagem.url(:medium)}
