@@ -15,7 +15,7 @@ describe Reserva do
   context 'Relacoes' do
     it{should belong_to(:usuario)}
     it{should belong_to(:equipamento)}
-    it{should has_one(:resultado)}
+    it{should have_one(:resultado)}
     it{should have_many(:comentarios)}
   end
 
