@@ -10,7 +10,7 @@ Sepol::Application.routes.draw do
   resources :equipamentos do
     resources :reservas
     resources :reservas do
-      resources :comentarios
+      resources :comentarios, only: :index
     end
   end
 
