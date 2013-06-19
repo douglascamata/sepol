@@ -11,6 +11,7 @@ Sepol::Application.routes.draw do
     resources :reservas
     resources :reservas do
       resources :comentarios, only: [:index, :show, :create]
+      resources :resultados
     end
   end
 
@@ -18,7 +19,7 @@ Sepol::Application.routes.draw do
 
   devise_for :administradores
 
-  resources :home, only: [:index]
+  resources :home, only: [:index] 
   resources :usuarios, only: [:index]
   root to: 'home#index'
   # The priority is based upon order of creation:
