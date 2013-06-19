@@ -11,11 +11,9 @@
 			%th Horario Final
 		-@reservas.sort_by(&:horario_inicial).each do |reserva|
 			%tr
-				%td
-					=link_to reserva.id, equipamento_reserva_path(@equipamento, reserva)
 				%td 
 					=reserva.usuario.nome
 				%td 
-					=reserva.horario_inicial.strftime("%T - %D")
+					=link_to reserva.horario_inicial.strftime("%T - %D"), equipamento_reserva_path(@equipamento, reserva)
 				%td 
 					=reserva.horario_final.strftime("%T - %D")
