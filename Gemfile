@@ -11,6 +11,8 @@ gem 'formtastic', '~> 2.2.0'
 gem 'jquery-rails'
 gem 'ransack'
 gem 'will_paginate', '~> 3.0.0'
+gem 'cancan', '~> 1.6.10'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
