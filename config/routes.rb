@@ -17,8 +17,6 @@ Sepol::Application.routes.draw do
 
   devise_for :usuarios
 
-  devise_for :administradores
-
   resources :home, only: [:index] 
   resources :usuarios, only: [:index]
   root to: 'home#index'
