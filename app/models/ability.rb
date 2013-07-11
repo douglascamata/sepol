@@ -6,13 +6,17 @@ class Ability
     #
       
     if usuario.nil?
-        can :read, :all
+      can :read, :all
+      cannot :read, [Reserva, Resultado, Comentario]
     else
-        if usuario.admin?
-            can :manage, :all
-        else
-            can :manage, Reserva, Comentario
-        end  
+      if usuario.admin?
+          can :manage, :all
+      else
+          can :read, :all, usuario_id: usuario.id
+          can :manage, Reserva, usuario_id: usuario.id
+          can :manage, Comentario, autor: usuario.nome
+          # cannot [:index], Reserva
+      end  
     end
     #
     # The first argument to `can` is the action you are giving the user 
