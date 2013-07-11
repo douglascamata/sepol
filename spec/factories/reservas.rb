@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :reserva do
     horario_inicial Time.now
-    horario_final Time.now + 2.hours
+    horario_final {horario_inicial + 2.hours}
     usuario
   end
 end
