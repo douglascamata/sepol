@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PublicacoesController < InheritedResources::Base
   load_and_authorize_resource
 	def index

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
   	if usuario_signed_in?
