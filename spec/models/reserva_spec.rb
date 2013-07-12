@@ -23,19 +23,20 @@ describe Reserva do
     it 'Horario inicial não pode estar entre horarios existentes' do
       usuario = FactoryGirl.create :usuario
       equipamento = FactoryGirl.create :equipamento
-      FactoryGirl.create :reserva, equipamento: equipamento
-      lambda{FactoryGirl.create :reserva, equipamento: equipamento}.should raise_exception
+      time = Time.now
+      FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: time, horario_final: time + 3.hours
+      lambda{FactoryGirl.create! :reserva, equipamento: equipamento, horario_inicial: time + 1.hour}.should raise_exception
     end
 
     it 'Horario final nao pode estar entre horarios ja existentes' do
       equipamento = FactoryGirl.create :equipamento
       FactoryGirl.create :reserva, equipamento: equipamento
-      lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: Time.now.yesterday, horario_final: Time.now + 30.minutes}.should raise_exception
+      lambda{FactoryGirl.create! :reserva, equipamento: equipamento, horario_inicial: Time.now.yesterday, horario_final: Time.now + 30.minutes}.should raise_exception
     end
 
     it 'Uma reserva nao pode acabar antes de começar' do
       equipamento = FactoryGirl.create :equipamento
-      lambda{FactoryGirl.create :reserva, equipamento: equipamento, horario_final: Time.now.yesterday}.should raise_exception
+      lambda{FactoryGirl.create! :reserva, equipamento: equipamento, horario_final: Time.now.yesterday}.should raise_exception
     end
 
     it 'Horario final nao pode ser igual a horario final' do
@@ -44,23 +45,16 @@ describe Reserva do
     end
 
     it 'Deve verificar se nao existe uma reserva no intervalo de tempo solicitado' do
-      horario = Time.now
       equipamento = FactoryGirl.create :equipamento
-      FactoryGirl.create :reserva, equipamento: equipamento,  horario_inicial: horario, horario_final: horario + 1.hour
-      lambda{FactoryGirl.create :reserva, equipamento: equipamento,  horario_inicial: horario - 1.hour, horario_final: horario + 2.hours}.should raise_error
+      FactoryGirl.create :reserva, equipamento: equipamento,  horario_inicial: Time.now, horario_final: Time.now + 1.hour
+      lambda{FactoryGirl.create :reserva, equipamento: equipamento,  horario_inicial: Time.now - 1.hour, horario_final: Time.now + 2.hours}.should raise_error
     end
 
 
     it 'Um equipamento pode ter varias reservas' do
       equipamento = FactoryGirl.create :equipamento
-      horario = Time.now
-      reserva_1 = FactoryGirl.create :reserva, equipamento: equipamento
-      reserva_2 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario + 2.days, horario_final: horario + 2.days + 2.hours
-      reserva_3 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario + 3.days, horario_final: horario + 3.days + 2.hours
-      reserva_4 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario + 4.days, horario_final: horario + 4.days + 2.hours
-      reserva_5 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario + 5.days, horario_final: horario + 5.days + 2.hours
-      reserva_6 = FactoryGirl.create :reserva, equipamento: equipamento, horario_inicial: horario + 6.days, horario_final: horario + 6.days + 2.hours
-      equipamento.reservas.should include(reserva_1, reserva_2, reserva_3, reserva_4, reserva_5, reserva_6)
+      reservas = FactoryGirl.create_list :reserva, 5, equipamento: equipamento
+      equipamento.reservas.should == reservas
     end
   end
 end
