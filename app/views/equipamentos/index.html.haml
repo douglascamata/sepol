@@ -20,8 +20,7 @@
         =equipamento.descricao
       -if usuario_signed_in?
         %hr
-          %button.btn.btn-large.btn-block
-            =link_to 'Reservar Equipamento', new_equipamento_reserva_path(equipamento)
+          =link_to raw('<i class="icon-time"></i> Reservar Equipamento'), new_equipamento_reserva_path(equipamento), class: "btn btn-large btn-block"
 
 %div.btn-group
   =will_paginate @equipamentos, container: false
