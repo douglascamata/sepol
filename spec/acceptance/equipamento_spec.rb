@@ -5,14 +5,14 @@ require 'spec_helper'
 feature 'Adicionar equipamento' do
   scenario 'Não pode ser realizado por visitante' do
       visit new_equipamento_path
-      page.should have_content 'Você precisa estar logado para acessar essa página.'    
+      page.should have_content 'Você precisa estar logado para acessar essa página!'
   end
 
   scenario 'Não pode ser realizado por qualquer usuario' do
     usuario = FactoryGirl.create :usuario
     logar(usuario)
     visit new_equipamento_path
-    page.should have_content 'Você precisa logar como administrador para acessar essa página.'    
+    page.should have_content 'Você não tem permissão para acessar essa página!'
   end
 
 
