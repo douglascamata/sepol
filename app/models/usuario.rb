@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   has_many :reservas
 
-  has_attached_file :avatar, :styles => { :medium => '200x200#', :thumb => '100x100>' }, :default_url => "assets/missing.jpg"
+  has_attached_file :avatar, :styles => { :thumb => '170x100>' }, :default_url => "assets/missing.jpg"
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
