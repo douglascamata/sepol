@@ -44,10 +44,10 @@ end
 
 feature 'Visualização de Publicações' do
   scenario 'Visualização basica' do
-    6.times{FactoryGirl.create :publicacao}
+    publicacoes = FactoryGirl.create_list :publicacao, 6
     visit publicacoes_path
 
-    Publicacao.all.each do |publicacao| 
+    publicacoes.each do |publicacao| 
       page.should have_content publicacao.titulo
       page.should have_content publicacao.abstract
     end

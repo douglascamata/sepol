@@ -43,8 +43,8 @@ end
 
 feature 'Listar Equipamentos' do
   scenario 'Listar todos equipamentos' do
-    10.times{FactoryGirl.create :equipamento}
+    equipamentos = FactoryGirl.create_list :equipamento, 4
     visit equipamentos_path
-    Equipamento.all.each{|equipamento| page.should have_content equipamento.nome}
+    equipamentos.each{|equipamento| page.should have_content equipamento.nome}
   end
 end
