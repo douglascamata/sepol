@@ -10,6 +10,4 @@
           %i
             =publicacao.abstract
           %div
-            %l.btn
-              %l.icon-download-alt{href: publicacao.link}
-              =link_to "Download", publicacao.link, :target => "_blank"
+            =link_to raw('<i class="icon-download-alt"></i> Download'), publicacao.link, :target => "_blank", class: "btn"
