@@ -9,7 +9,7 @@
     %tr
       %th Horario Inicio
       %th Horario Final
-    -@equipamento.reservas.sort_by(&:horario_inicial).each do |reserva|
+    -@reservas.sort_by(&:horario_inicial).each do |reserva|
       %tr
         %td 
           =link_to reserva.horario_inicial.strftime("%T - %D"), equipamento_reserva_path(@equipamento, reserva)
@@ -27,7 +27,7 @@
       %th Equipamento
       %th Horario Inicio
       %th Horario Final
-    -current_usuario.reservas.sort_by(&:horario_inicial).each do |reserva|
+    -@reservas.sort_by(&:horario_inicial).each do |reserva|
       %tr
         %td 
           = link_to reserva.equipamento.nome, equipamento_reservas_path(reserva.equipamento)

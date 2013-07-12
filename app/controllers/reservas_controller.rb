@@ -2,8 +2,15 @@ class ReservasController < InheritedResources::Base
 	load_and_authorize_resource
 	def index
 		if params[:equipamento_id]
-			@equipamento = Equipamento.find(params[:equipamento_id])
-			@reservas = Reserva.where('equipamento_id = ?', params[:equipamento_id])
+			if current_usuario.admin?
+				@equipamento = Equipamento.find(params[:equipamento_id])
+				@reservas = @equipamento.reservas
+			else
+				@equipamento = Equipamento.find(params[:equipamento_id])
+				@reservas = current_usuario.reservas.where(equipamento_id: @equipamento.id)
+			end
+		else
+			@reservas = current_usuario.reservas
 		end
 	end
 
