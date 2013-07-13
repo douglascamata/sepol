@@ -1,4 +1,4 @@
-= form_for @publicacao do |f|
+= semantic_form_for @publicacao do |f|
   - if @publicacao.errors.any?
     #error_explanation
       %h2= "#{pluralize(@publicacao.errors.count, "error")} prohibited this publicacao from being saved:"
@@ -7,13 +7,10 @@
           %li= msg
 
   .field
-    = f.label :titulo
-    = f.text_field :titulo
+    = f.input :titulo, label: 'Título'
   .field
-    = f.label :abstract
-    = f.text_area :abstract
+    = f.input :abstract, label: 'Abstract'
   .field
-    = f.label :link
-    = f.url_field :link
+    = f.input :link, label: 'Link'
   .actions
     = f.submit 'Save'

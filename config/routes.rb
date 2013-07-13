@@ -7,6 +7,7 @@ Sepol::Application.routes.draw do
 
   resources :equipamentos
   
+  resources :reservas, only: :index
   resources :equipamentos do
     resources :reservas
     resources :reservas do
@@ -16,8 +17,6 @@ Sepol::Application.routes.draw do
   end
 
   devise_for :usuarios
-
-  devise_for :administradores
 
   resources :home, only: [:index] 
   resources :usuarios, only: [:index]

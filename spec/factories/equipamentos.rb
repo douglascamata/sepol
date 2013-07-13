@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :equipamento do
-    nome "MyString"
+    sequence(:nome) {|n| "equipamento #{n}"}
     descricao "MyText"
     imagem {fixture_file_upload('spec/suport/equipamento_default.jpg', 'image/jpg')}
   end

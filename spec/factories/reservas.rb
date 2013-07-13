@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :reserva do
-    horario_inicial Time.now
-    horario_final Time.now + 2.hours
+    sequence(:horario_inicial) {|n| Time.now + n.days} 
+    horario_final {horario_inicial + 1.hour}
     usuario
+    equipamento
   end
 end
 	

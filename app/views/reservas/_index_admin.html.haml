@@ -1,0 +1,40 @@
+-if @equipamento
+  %h5
+    Todas as reservas para:
+  %h3 
+    =@equipamento.nome
+    %hr
+
+  %table.table.table-striped
+    %tr
+      %th Usuario
+      %th Horario Inicio
+      %th Horario Final
+    -@reservas.sort_by(&:horario_inicial).each do |reserva|
+      %tr
+        %td 
+          = reserva.usuario.nome
+        %td 
+          =link_to reserva.horario_inicial.strftime("%T - %D"), equipamento_reserva_path(@equipamento, reserva)
+        %td 
+          =reserva.horario_final.strftime("%T - %D")
+-else
+
+
+  %h3 
+    Minhas Reservas
+    %hr
+
+  %table.table.table-striped
+    %tr
+      %th Equipamento
+      %th Horario Inicio
+      %th Horario Final
+    -@reservas.sort_by(&:horario_inicial).each do |reserva|
+      %tr
+        %td 
+          = link_to reserva.equipamento.nome, equipamento_reservas_path(reserva.equipamento)
+        %td 
+          =link_to reserva.horario_inicial.strftime("%T - %D"), equipamento_reserva_path(reserva.equipamento, reserva)
+        %td 
+          =reserva.horario_final.strftime("%T - %D")
