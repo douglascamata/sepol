@@ -1,25 +1,78 @@
-.span12.offset1
-	%h3 Pesquisadores
+%div.tabbable.tabs-left
+  %ul.nav.nav-tabs
+    %li.active
+      %a{href: '#lA', "data-toggle" => 'tab'}
+        Pesquisadores
+    %li
+      %a{href: '#lB', "data-toggle" => 'tab'}
+        Pós Graduação
 
-	%div
-		%div{class: "row-fluid without-margin-left"}
-			-@usuarios.sort_by(&:nome ).each do |usuario|
-				%div.span2
-					%div.thumbnail.well
-						%div
-							%img{:src=> root_url.chomp('/') + usuario.avatar.url(:medium)}
-						%div
-							%div.box_nome_pesquisador
-								%h5
-									=usuario.nome
-							%hr
-							%p
-								=image_tag "lattes_icon.png", width: 16
-								=link_to "Lattes", usuario.lattes
-							%p
-								%i.icon-envelope
-								=mail_to usuario.email, 'Email'
-							%p
-								%i.icon-user
-								= usuario.cargo
-							
+    %li
+      %a{href: '#lC', "data-toggle" => 'tab'}
+        Iniciação Científica
+
+
+  %div.tab-content
+    %div.tab-pane.active{id: "lA"}
+      %div.row
+        %li.thumbnails
+        -@usuarios.select{|u| u.cargo == "Pesquisador"}.each do |usuario|  
+          %ul.span2.thumbnail
+            %img{:src=> root_url.chomp('/') + usuario.avatar.url(:thumb)}
+            %div.caption
+              %p
+                %strong
+                  =usuario.nome
+              %hr
+                %p
+                  =image_tag "lattes_icon.png", width: 16
+                  =link_to "Lattes", usuario.lattes
+                %p
+                  %i.icon-envelope
+                  =mail_to usuario.email, 'Email'
+                %p
+                  %i.icon-user
+                  = usuario.cargo
+  
+
+    %div.tab-pane{id: "lB"}
+      %div.row
+        %li.thumbnails
+        -@usuarios.select{|u| u.cargo == "Pós Graduação"}.each do |usuario|  
+          %ul.span2.thumbnail
+            %img{:src=> root_url.chomp('/') + usuario.avatar.url(:thumb)}
+            %div.caption
+              %p
+                %strong
+                  =usuario.nome
+              %hr
+                %p
+                  =image_tag "lattes_icon.png", width: 16
+                  =link_to "Lattes", usuario.lattes
+                %p
+                  %i.icon-envelope
+                  =mail_to usuario.email, 'Email'
+                %p
+                  %i.icon-user
+                  = usuario.cargo
+    
+    %div.tab-pane{id: "lC"} 
+      %div.row
+        %li.thumbnails
+        -@usuarios.select{|u| u.cargo == "Iniciação Científica"}.each do |usuario|  
+          %ul.span2.thumbnail
+            %img{:src=> root_url.chomp('/') + usuario.avatar.url(:thumb)}
+            %div.caption
+              %p
+                %strong
+                  =usuario.nome
+              %hr
+                %p
+                  =image_tag "lattes_icon.png", width: 16
+                  =link_to "Lattes", usuario.lattes
+                %p
+                  %i.icon-envelope
+                  =mail_to usuario.email, 'Email'
+                %p
+                  %i.icon-user
+                  = usuario.cargo
