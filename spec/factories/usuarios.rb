@@ -7,6 +7,6 @@ FactoryGirl.define do
     password "12345678"
     password_confirmation "12345678"
     sequence(:lattes) {|n| "http://buscatextual.cnpq.br/usuario%s" % n}
-    cargo 'Bolsista'
+    cargo 'Pesquisador'
   end
 end

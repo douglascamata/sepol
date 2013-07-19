@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Cadastrar novo ususario</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -10,7 +10,7 @@
   <%= f.text_field :lattes %></div>
 
   <div><%= f.label :cargo %><br />
-  <%= f.text_field :cargo %></div>
+  <%= f.select :cargo, ["Pesquisador", "Pós Graduação", "Iniciação Científica"] %></div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
