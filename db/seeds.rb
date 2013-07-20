@@ -91,39 +91,41 @@ Equipamento.create!(nome: "Infra Estrutura - SEPOL- Salas 14-16",
 					imagem: open("http://www.uenf.br/Uenf/fotos/LAMAV_POLIMEROS_1440_1279633239.jpg")
 	)
 
-3.times{|n|
-	Usuario.create!(nome: "Annabell Del Real Tamariz", 
-						lattes:"http://lattes.cnpq.br/7484786835288826" , 
-						email: "annabell#{n}@uenf.br",
-						avatar: open("http://www.lcmat.uenf.br/system/professors/1/photos/small/Anna-Site.png?1360265723"),
-						password: "123456",
-						password_confirmation: "123456",
-						cargo: "Pesquisador"
-		)
+if Usuario.all.empty?
+	3.times{|n|
+		Usuario.create!(nome: "Annabell Del Real Tamariz", 
+							lattes:"http://lattes.cnpq.br/7484786835288826" , 
+							email: "annabell#{n}@uenf.br",
+							avatar: open("http://www.lcmat.uenf.br/system/professors/1/photos/small/Anna-Site.png?1360265723"),
+							password: "123456",
+							password_confirmation: "123456",
+							cargo: "Pesquisador"
+			)
 
-	Usuario.create!(nome: "Ausberto S. Castro Vera", 
-						lattes:"http://lattes.cnpq.br/5716122572035460" , 
-						email: "ascv#{n}@uenf.br",
-						avatar: open("http://www.lcmat.uenf.br/system/professors/16/photos/small/Ausberto.jpg?1360261102"),
-						password: "123456",
-						password_confirmation: "123456",
-						cargo: "Pós Graduação"
-		)
+		Usuario.create!(nome: "Ausberto S. Castro Vera", 
+							lattes:"http://lattes.cnpq.br/5716122572035460" , 
+							email: "ascv#{n}@uenf.br",
+							avatar: open("http://www.lcmat.uenf.br/system/professors/16/photos/small/Ausberto.jpg?1360261102"),
+							password: "123456",
+							password_confirmation: "123456",
+							cargo: "Pós Graduação"
+			)
 
-	Usuario.create!(nome: "Luis Antonio Rivera Escriba", 
-						lattes:"http://google.com/" , 
-						email: "rivera#{n}@uenf.br",
-						avatar: open("http://www.lcmat.uenf.br/system/professors/2/photos/small/luis-uenf2011-02-pagina.jpg?1360274108"),
-						password: "123456",
-						password_confirmation: "123456",
-						cargo: "Iniciação Científica"
-		)
+		Usuario.create!(nome: "Luis Antonio Rivera Escriba", 
+							lattes:"http://google.com/" , 
+							email: "rivera#{n}@uenf.br",
+							avatar: open("http://www.lcmat.uenf.br/system/professors/2/photos/small/luis-uenf2011-02-pagina.jpg?1360274108"),
+							password: "123456",
+							password_confirmation: "123456",
+							cargo: "Iniciação Científica"
+			)
 
-	Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
-						lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
-						email: "sanchez#{n}@uenf.br",
-						avatar: open("http://www.fuegen-trennen-beschichten.de/EXPERT_autoren/200606.jpg"),
-						password: "123456",
-						password_confirmation: "123456",
-						cargo: "Pesquisador"
+		Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
+							lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
+							email: "sanchez#{n}@uenf.br",
+							avatar: open("http://www.fuegen-trennen-beschichten.de/EXPERT_autoren/200606.jpg"),
+							password: "123456",
+							password_confirmation: "123456",
+							cargo: "Pesquisador"
 		)}
+end
