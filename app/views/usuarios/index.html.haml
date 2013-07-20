@@ -26,14 +26,14 @@
               %hr
                 %p
                   =image_tag "lattes_icon.png", width: 16
-                  =link_to "Lattes", usuario.lattes
+                  =link_to "Lattes", usuario.lattes, class: "btn-link"
                 %p
                   %i.icon-envelope
-                  =mail_to usuario.email, 'Email'
+                  =mail_to usuario.email, 'Email', class: "btn-link"
                 %p
                   %i.icon-user
                   = usuario.cargo
-  
+              
 
     %div.tab-pane{id: "lB"}
       %div.row
@@ -48,10 +48,10 @@
               %hr
                 %p
                   =image_tag "lattes_icon.png", width: 16
-                  =link_to "Lattes", usuario.lattes
+                  =link_to "Lattes", usuario.lattes, class: "btn-link"
                 %p
                   %i.icon-envelope
-                  =mail_to usuario.email, 'Email'
+                  =mail_to usuario.email, 'Email', class: "btn-link"
                 %p
                   %i.icon-user
                   = usuario.cargo
@@ -69,10 +69,10 @@
               %hr
                 %p
                   =image_tag "lattes_icon.png", width: 16
-                  =link_to "Lattes", usuario.lattes
+                  =link_to "Lattes", usuario.lattes, class: "btn-link"
                 %p
                   %i.icon-envelope
-                  =mail_to usuario.email, 'Email'
+                  =mail_to usuario.email, 'Email', class: "btn-link"
                 %p
                   %i.icon-user
                   = usuario.cargo
