@@ -6,6 +6,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Usuario.create! email: "admin@email.br", password: "123456", admin: true
 
 Publicacao.create!(titulo: "Photothermal characterization of low density polyethylene food packages",
 				   abstract: "The present work discuss the applicability of photothermal techniques for determining diffusion coefficients of 
