@@ -6,8 +6,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Usuario.create! email: "admin@email.br", password: "123456", admin: true
-
 Publicacao.create!(titulo: "Photothermal characterization of low density polyethylene food packages",
 				   abstract: "The present work discuss the applicability of photothermal techniques for determining diffusion coefficients of 
 							   oxygen and carbon dioxide of commercial low-density polyethylene (LDPE). The methodology involves the monitoring 
@@ -121,12 +119,14 @@ if Usuario.all.empty?
 							cargo: "Iniciação Científica"
 			)
 
+}
 		Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
 							lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
-							email: "sanchez#{n}@uenf.br",
+							email: "sanchez@uenf.br",
 							avatar: open("http://www.fuegen-trennen-beschichten.de/EXPERT_autoren/200606.jpg"),
 							password: "123456",
 							password_confirmation: "123456",
 							cargo: "Pesquisador"
-		)}
+							admin: true
+		)
 end
