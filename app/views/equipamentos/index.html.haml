@@ -1,4 +1,4 @@
-%span3.row
+.span.row
   %div.thumbnails
   -@equipamentos.each do |equipamento|  
     %div.span3.thumbnail
@@ -22,13 +22,13 @@
         %hr
           =link_to raw('<i class="icon-time"></i> Reservar Equipamento'), new_equipamento_reserva_path(equipamento), class: "btn btn-large btn-block"
 
-%div.btn-group
-  =will_paginate @equipamentos, container: false
-%a{class: "btn btn-small carousel-control left", "data-slide"=>"prev", onclick: "$(\".previous_page\").children()[0].click();"}
-  = "‹"
+  %div.btn-group
+    =will_paginate @equipamentos, container: false
+  %a{class: "btn btn-small carousel-control left", "data-slide"=>"prev", onclick: "$(\".previous_page\").children()[0].click();"}
+    = "‹"
 
-%a{class: "btn btn-small carousel-control right", "data-slide"=>"next", onclick: "$(\".next_page\").children()[0].click();"}
-  = "›"
+  %a{class: "btn btn-small carousel-control right", "data-slide"=>"next", onclick: "$(\".next_page\").children()[0].click();"}
+    = "›"
 
       
     

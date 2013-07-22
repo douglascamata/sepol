@@ -1,0 +1,45 @@
+%div.content
+  %div.span12
+    %div.span1
+      %img.img-polaroid{src: current_usuario.avatar(:thumb)}
+    %span.span6
+      %p
+        %h3
+          =current_usuario.nome
+      %p
+        =current_usuario.email
+  %div.span12.thumbnail
+    %div{class: "accordion", id: "accordion2"}      
+      %div{class: "accordion-group"}
+        %div{class: "accordion-heading"}
+          %a{href:"#collapseOne", class: "accordion-toggle btn-link", "data-toggle" => "collapse", "data-parent" => "#accordion2"}
+            %h4
+              Ultimas Reservas
+      %div{id: "collapseOne", class: "accordion-body collapse in"}
+        %div{class: "accordion-inner"}
+          %table.table.table-bordered.table-striped
+            %tr
+              %th Equipamento
+              %th Horario Inicio
+              %th Horario Final
+            -current_usuario.reservas.last(4).each do |reserva|
+              %tr
+                %td
+                  = link_to reserva.equipamento.nome, equipamento_reservas_path(reserva.equipamento), class: "btn btn-link"
+                %td 
+                  =link_to reserva.horario_inicial.strftime("%T - %D"), equipamento_reserva_path(reserva.equipamento, reserva), class: "btn btn-link"
+                %td 
+                  =reserva.horario_final.strftime("%T - %D")
+
+
+    %div{class: "accordion-group"}
+      %div{class: "accordion-heading"}
+        %a{class: "accordion-toggle btn-link", "data-toggle"=>"collapse", "data-parent"=>"#accordion2", href:"#collapseTwo"}
+          %h4
+            Ultimos resultados de análises
+      %div{id: "collapseTwo", class: "accordion-body collapse"}
+        %div{class: "accordion-inner"}
+          -current_usuario.reservas.select{|r| r.resultado.present?}.last(5).each do |reserva|
+            %span6
+              %a{href: equipamento_reserva_path(reserva.equipamento_id, reserva.id)}
+                %img.img-polaroid{src: reserva.resultado.imagem.url(:thumb)}

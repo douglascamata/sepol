@@ -36,6 +36,11 @@
                 %a{href: root_path} 
                   %i.icon-home
                   Home
+              -if usuario_signed_in?
+                %li
+                  %a{href: usuario_path(current_usuario)} 
+                    %i.icon-user
+                    Perfil
               %li
                 %a{href: usuarios_path} 
                   %i.icon-group
