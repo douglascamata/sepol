@@ -119,14 +119,14 @@ if Usuario.all.empty?
 							cargo: "Iniciação Científica"
 			)
 
-}
+	}
 		Usuario.create!(nome: "Rubén Jesus Sánchez Rodríguez", 
 							lattes:"http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4794282Z2" , 
 							email: "sanchez@uenf.br",
 							avatar: open("http://www.fuegen-trennen-beschichten.de/EXPERT_autoren/200606.jpg"),
 							password: "123456",
 							password_confirmation: "123456",
-							cargo: "Pesquisador"
+							cargo: "Pesquisador",
 							admin: true
 		)
 end
