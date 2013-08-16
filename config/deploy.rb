@@ -49,6 +49,7 @@ namespace :bundle do
 end
 
 namespace :db do
+  task :drop do; run "cd #{release_path}; bundle exec rake db:drop:all"; end
   task :create do; run "cd #{release_path}; bundle exec rake db:create"; end
   task :migrate do; run "cd #{release_path}; bundle exec rake db:migrate"; end
   task :seed do; run "cd #{release_path}; bundle exec rake db:seed"; end
