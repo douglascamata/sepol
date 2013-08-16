@@ -1,0 +1,10 @@
+%h3 Cadastrar novo ususario
+=semantic_form_for @usuario, url: usuario_registration_path do |f|  
+  = f.input :nome
+  = f.input :lattes  
+  = f.input :cargo, as: :select, collection: ["Pesquisador", "Pós Graduação", "Iniciação Científica"]
+  = f.input :email
+  
+  = f.input :avatar
+
+  = f.submit "Sign up"
