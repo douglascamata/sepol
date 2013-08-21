@@ -27,9 +27,14 @@ class ReservasController < InheritedResources::Base
 	end
 
 	def create
-		@equipamento = Equipamento.find(params[:equipamento_id])
+		@equipamento = Equipamento.find(params[:reserva][:equipamento_id])
 		@reserva = @equipamento.reservas.build(params[:reserva])
 		@reserva.save!
 		redirect_to equipamentos_path, notice: "Reserva feita com sucesso."
 	end
+
+  def buscar
+   	@equipamento = Equipamento.find(params[:equipamento])
+		respond_to :js
+  end
 end

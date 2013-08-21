@@ -32,8 +32,6 @@
             %i{"data-time-icon"=>"icon-time", "data-date-icon"=>"icon-calendar"}
       .actions
         = f.submit 'Save'
-  %div.span7
-    %div.span3
-      %img{:class=>"img-polaroid", :src=> root_url.chomp('/') + @equipamento.imagem.url(:medium)}
-    %div.span3
-      =@equipamento.descricao
+
+  %div.span7{id: "visualizacao-equipamento"}
+    =render 'descricao_imagem', equipamento: @equipamento

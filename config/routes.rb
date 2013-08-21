@@ -6,8 +6,12 @@ Sepol::Application.routes.draw do
   end
 
   resources :equipamentos
-  
-  resources :reservas, only: :index
+
+  resources :reservas do
+    collection do
+      get :buscar
+    end
+  end
   resources :equipamentos do
     resources :reservas
     resources :reservas do
@@ -18,7 +22,7 @@ Sepol::Application.routes.draw do
 
   devise_for :usuarios
 
-  resources :home, only: [:index] 
+  resources :home, only: [:index]
   resources :usuarios, only: [:index, :show]
   root to: 'home#index'
   # The priority is based upon order of creation:
