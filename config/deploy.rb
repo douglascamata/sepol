@@ -63,6 +63,6 @@ namespace :deploy do
 end
 
 tasks = ["deploy:finalize_update", "utils:copy_config_file"]
-
 after *tasks
+before 'deploy:update', "deploy:setup"
 after "deploy:update_code", "db:create", "db:migrate", "db:seed", "utils:compile_assets"
