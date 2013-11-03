@@ -36,7 +36,7 @@ namespace :utils do
     run "cd #{latest_release}; bundle exec rake db:seed"
   end
   task :copy_config_file do
-    run "cp #{latest_release}/config/database.yml.example > #{latest_release}/config/database.yml"
+    # run "cp #{latest_release}/config/database.yml.example > #{latest_release}/config/database.yml"
     # run "cat ~/.protocolo/mail.yml > #{latest_release}/config/mail.yml"
   end
 end
