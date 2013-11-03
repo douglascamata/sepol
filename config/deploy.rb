@@ -1,5 +1,5 @@
 set :application, "sepol"
-set :domain, "172.20.5.107"
+set :domain, "162.243.75.178"
 set :deploy_to, "/home/deploy/#{application}"
 set :user, "deploy"
 set :use_sudo, false
@@ -9,7 +9,7 @@ default_run_options[:pty] = true # allow pseudo-terminals
 ssh_options[:forward_agent] = true # forward SSH keys (this will use your SSH key to get the code from git repository)
 ssh_options[:port] = 22
 
-set :repository,  "https://github.com/cciuenf/sepol.git"
+set :repository,  "https://github.com/douglascamata/sepol.git"
 set :scm, :git
 
 role :web, domain
@@ -22,8 +22,7 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 set :bundle_without,  [:development]
 set :rvm_install_type, :head
-set :rvm_install_ruby_params, '--1.9'      # for jruby/rbx default to 1.9 mode
-set :rvm_ruby_string, "1.9.3-p194@sepol"
+set :rvm_ruby_string, "2.0.0@sepol"
 set :rvm_install_ruby, :install
 set :rvm_install_shell, :bash
 
@@ -37,7 +36,7 @@ namespace :utils do
     run "cd #{latest_release}; bundle exec rake db:seed"
   end
   task :copy_config_file do
-    run "cat /home/ada/.sepol/database.yml > #{latest_release}/config/database.yml"
+    run "cp #{latest_release}/config/database.yml.example > #{latest_release}/config/database.yml"
     # run "cat ~/.protocolo/mail.yml > #{latest_release}/config/mail.yml"
   end
 end
